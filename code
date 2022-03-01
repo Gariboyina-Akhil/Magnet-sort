@@ -1,0 +1,39 @@
+for i in range(int(input())):
+    n=int(input())
+    l=list(map(int,input().split()))
+    l1=sorted(l)   #sorted list
+    s=list(input())
+    if(l==l1):  #checking given list is already sorted or not
+        print(0)
+    elif(s[0]!=s[-1]): #checking for repeaed numbers
+        print(1)
+    else:
+        if(("S" not in s) or ("N" not in s)): #checking weather list contain both polarity's
+            print(-1)
+        else:
+            j=0
+            k=n-1
+            l2=[]
+            while(s[j]==s[k]): #checking for only one opration possibility
+                k-=1
+            l2.extend(sorted(l[:k+1]))
+            l2.extend(l[k+1:])
+            if(l2==l1):
+                print(1)
+            else:
+                j=0
+                k=n-1
+                l2=[]
+                while(s[j]==s[k]):  #checking for only one opration possibility
+                    j+=1
+                l2.extend(l[:j])
+                l2.extend(sorted(l[j:]))
+                #print(l2)
+                if(l1==l2):
+                    print(1)
+                else:
+                    print(2)
+            
+        
+        
+        
